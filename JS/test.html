@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Number Reader</title>  
+    <script src="NumberReader.js"></script>
+    <script type="text/javascript">  
+      function readNumber() { 
+            var numberReader= new NumberReader() 
+            var input =document.getElementById('num').value  // getting the type value
+         if (input)    
+         result = numberReader.getWordsFromNumber(input)  // validete and  get in words
+        document.getElementById('result').innerHTML=result // shown values
+        }
+      </script>
+   <style>
+      
+   </style>
+</head>
+
+<body> 
+  	<input type="number" name="num" id="num" value="25" >
+     <button onclick="readNumber()">Check Number </button> 
+    <div id="result" name="result" style="margin: 10px 10px 200px 10px ">
+    	 Hello 
+    </div> 
+ 
+    <h2>Basic test code</h2> 
+    <pre> <code> 
+      &lt!DOCTYPE html&gt
+&lthtml lang="en"&gt
+
+&lthead&gt
+    &ltmeta charset="UTF-8"&gt
+    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
+    &lttitle&gt Number Reader&lt/title&gt  
+    &ltscript src="NumberReader.js"&gt&lt/script&gt
+    &ltscript type="text/javascript"&gt  
+      function readNumber() { 
+            var numberReader= new NumberReader() 
+            var input =document.getElementById('num').value  // getting the type value
+         if (input)    
+         result = numberReader.getWordsFromNumber(input)  // validete and  get in words
+        document.getElementById('result').innerHTML=result // shown values
+        }
+      &lt/script&gt
+   &ltstyle&gt
+      
+   &lt/style&gt
+&lt/head&gt
+
+&ltbody&gt 
+  	&ltinput type="number" name="num" id="num" value="25" &gt
+     &ltbutton onclick="readNumber()"&gtCheck Number &lt/button&gt 
+    &ltdiv id="result" name="result" style="margin: 10px 10px 200px 10px "&gt
+    	 Hello 
+    &lt/div&gt 
+  
+
+&lt/body&gt 
+&lt/html&gt  
+      </code>
+    </pre>
+
+</body> 
+</html>
