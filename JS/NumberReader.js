@@ -58,22 +58,85 @@
 
          numberHeader(  l){
         switch(l){
-            case 2 :return "HUNDRED";
+            case 2 :return "Hundred";
 
             case 3 :
             case 4 :
-            case 5 :return "THOUSAND";
+            case 5 :return "Thousand";
 
             case 6 :
             case 7:
             case 8:
-                return "MILLION";
+                return "Million";
             case 9 :
             case 10 :
-            case 11:return "BILLION";
+            case 11:return "Billion";
             case 12:
             case 13 :
-            case 14 :return "TRILLION";
+            case 14 :return "Trillion";
+            case 15:
+            case 16 :
+            case 17 :return "Quadrillion";
+            case 18:
+            case 19 :
+            case 20 :return "Quintillion";
+            case 21:
+            case 22 :
+            case 23 :return "Sextillion";
+            case 24:
+            case 25 :
+            case 26 :return "Septillion";
+            case 27:
+            case 28 :
+            case 29 :return "Octillion";
+            case 30:
+            case 31 :
+            case 32 :return "Nonillion";
+           case 33:
+            case 34 :
+            case 35 :return "Decillion";
+
+            case 36:
+            case 37 :
+            case 38 :return "Undecillion";
+
+            case 39:
+            case 40 :
+            case 41 :return "Duodecillion";
+
+            case 42:
+           case 43 :
+              case 44 :return "Tredecillion";
+
+            case 45:
+            case 46 :
+            case 47 :return "Quattuordecillion";
+
+            case 48:
+            case 49 :
+            case 50 :return "Quindecillion";
+
+            case 51:
+             case 52 :
+            case 53 :return "Sexdecillion";
+
+            case 54:
+           case 55 :
+            case 56 :return "Septendecillion";
+
+            case 57:
+            case 58 :
+            case 59 :return "Octodecillion";
+
+            case 60:
+            case 61 :
+            case 62 :return "Novemdecillion";
+
+            case 63:
+              case 64 :
+             case 65 :return "Vigintillion";                                                                                                                                                                                                    
+
+    
 
         }
         return "";
@@ -129,7 +192,7 @@ return false;
       _read(n){
         var s1="", s2="";
         var l=3;
-        if(n.length<=15){ 
+        if(n.length<=64){ 
 
             if (n.length<=3){ 
                 if(this.upToThosand() &&!this.isZeros(n))
@@ -147,10 +210,11 @@ return false;
              else
                 return this.readHundreds(s1, false)+ this.numberHeader(n.length-1)+ this.getComma(s2)+this._read(s2);
             }
-        }else
-            console.log("error occur num greater accounted digit (15) "+n.length);
+        }else{
+            console.log("error occur num greater accounted digit   "+n.length);
 
-
+            return "Eror number too long " 
+        }
         return " ";
     }
 
