@@ -220,24 +220,39 @@ return false;
 
  print(n){
 
-        this.num=n;
-    console.log(" ")
-    console.log(" ")
-    console.log("new")
-    console.log(n+"   "+this._read(n))
+    this.num=n; 
+    console.log(n+"   "+this.getWordsFromNumber(n))
 
 }  
 
 
 
  getWordsFromNumber(number){
-
+ if(number){
+     if(number.length>0){
+         if(this.isAllDigit(number)){
         this.num=number; 
       const  result =this._read(number)
-    console.log(number+" ==   "+result) 
- return result
+    console.log(number+" ==   "+result)
+    return result.toUpperCase()
+}else{
+        return "Unwanted character found"
+    }
+
+}else{
+        return "Empty"
+    }
+ 
+} else{
+     return "Error"
+ }
 
 }
+isAllDigit(n){
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+
 
 }
 var r= new NumberReader()
@@ -249,4 +264,4 @@ r.print("100041");
 r.print("1001");
 r.print("20003256434"); 
 r.print("0000"); 
-
+r.print("0000A");
