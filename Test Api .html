@@ -8,7 +8,7 @@
     <script type="text/javascript">  
     
 function getWordsFromNumber(n){ 
-fetch('http://localhost:3000/v1/words', {  
+fetch('https://learn-numbers.herokuapp.com/v1/words', {  
   method: 'put' 
 , headers: { 'Content-Type': 'application/json', } 
   
@@ -67,9 +67,10 @@ fetch('http://localhost:3000/v1/words', {
     &ltscript src="NumberReader.js"&gt&lt/script&gt
     &ltscript type="text/javascript"&gt  
      
+     
     
 function getWordsFromNumber(n){ 
-  fetch('/v1/words', {  
+  fetch('https://learn-numbers.herokuapp.com/v1/words', {  
     method: 'put' 
   , headers: { 'Content-Type': 'application/json', } 
     
