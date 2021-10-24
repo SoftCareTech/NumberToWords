@@ -9,9 +9,9 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))  
 app.use(bodyParser.json())  
 app.use('/v1', require('./routes/v1').v1); 
-
-app.listen(3000, function() {
-        console.log('listening on 3000')
+var port = process.env.PORT|| 500
+app.listen(port, function() {
+        console.log('Listening on '+port)
 
     }) 
  
