@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Number Reader API</title>  
+    <script type="text/javascript">  
+    
+function getWordsFromNumber(n){ 
+fetch('/v1/words', {  
+  method: 'put' 
+, headers: { 'Content-Type': 'application/json', } 
+  
+,body: JSON.stringify({   'number':n  })
+}) .then(res => {
+      if (res.ok) return res.json()
+    })
+    .then(response => {  
+    console.log(response) 
+    updateView(response)
+    }) 
+
+    
+  
+}
+      function readNumber() { 
+             
+            var input =document.getElementById('num').value  // getting the type value
+         if (input)    {
+         getWordsFromNumber(input)  // validete and  get in words 
+        }else
+         document.getElementById('result').innerHTML="Error 1"  
+        }
+        function updateView(result){
+          if (result){
+         document.getElementById('result').innerHTML=result.words // shown values
+        }else
+         document.getElementById('result').innerHTML="Error 2"  +result
+        }       
+      </script>
+   <style>
+      
+   </style>
+</head>
+
+<body> 
+   <h1> Number to Words</h1>
+
+   <h3> Type number and Check Number below </h3>
+  	<input type="number" name="num" id="num" value="" >
+     <button onclick="readNumber()">Check Number </button> 
+    <div id="result" name="result" style="margin: 10px 10px 100px 10px ">
+    	 
+    </div> 
+
+    <h2>Basic test code</h2> 
+    <pre   style="  border-style: double;">
+       <code style="color: brown;margin: 30px 30px 30px 30px ;  "> 
+      &lt!DOCTYPE html&gt
+&lthtml lang="en"&gt
+
+&lthead&gt
+    &ltmeta charset="UTF-8"&gt
+    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
+    &lttitle&gt Number Reader&lt/title&gt  
+    &ltscript src="NumberReader.js"&gt&lt/script&gt
+    &ltscript type="text/javascript"&gt  
+     
+    
+function getWordsFromNumber(n){ 
+  fetch('/v1/words', {  
+    method: 'put' 
+  , headers: { 'Content-Type': 'application/json', } 
+    
+  ,body: JSON.stringify({   'number':n  })
+  }) .then(res => {
+        if (res.ok) return res.json()
+      })
+      .then(response => {  
+      console.log(response) 
+      updateView(response)
+      }) 
+  
+      
+    
+  }
+        function readNumber() { 
+               
+              var input =document.getElementById('num').value  // getting the type value
+           if (input)    {
+           getWordsFromNumber(input)  // validete and  get in words 
+          }else
+           document.getElementById('result').innerHTML="Error 1"  
+          }
+          function updateView(result){
+            if (result){
+           document.getElementById('result').innerHTML=result.words // shown values
+          }else
+           document.getElementById('result').innerHTML="Error 2"  +result
+          }       
+      &lt/script&gt
+   &ltstyle&gt
+      
+   &lt/style&gt
+&lt/head&gt
+
+&ltbody&gt 
+  	&ltinput type="number" name="num" id="num" value="25" &gt
+     &ltbutton onclick="readNumber()"&gtCheck Number &lt/button&gt 
+    &ltdiv id="result" name="result" style="margin: 10px 10px 200px 10px "&gt
+    	 Hello 
+    &lt/div&gt 
+  
+
+&lt/body&gt 
+&lt/html&gt  
+      </code>
+    </pre>
+
+    <h4> <a href="../"> Back to main </a></h4> 
+</body> 
+</html>
