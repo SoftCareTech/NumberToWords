@@ -22,8 +22,8 @@ fetch("/v2/words/"+number+"/"+lang, {
     
   
 }
-      function readNumber(lang) { 
-             
+      function readNumber( ) { 
+        const lang = document.getElementById('lang').value 
             var input =document.getElementById('num').value  // getting the type value
          if (input)    {
          getWordsFromNumber(input, lang)  // validete and  get in words 
@@ -47,8 +47,13 @@ fetch("/v2/words/"+number+"/"+lang, {
 
    <h3> Type number and Check Number below </h3>
   	<input type="number" name="num" id="num" value="" >
-     <button onclick="readNumber('English')">Check Number </button> 
+     <button onclick="readNumber( )">Check Number </button> 
     <div id="result" name="result" style="margin: 10px 10px 100px 10px ">
+      <select name="lang"  id="lang">  
+        <option value='English'  > English</option>
+        <option value='Tiv'  >Tiv</option>
+ 
+      </select>
     	 
     </div> 
 
