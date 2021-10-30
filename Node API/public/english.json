@@ -1,0 +1,16 @@
+{
+    "algType":0,      
+    "0":"Zero",
+    "1" :"One" ,
+    "2" :"One", 
+    "3" :"One" ,
+
+    "power" :{
+        "2": "Hundered",
+        "3": "Thousand",
+        "4": "Thousand",
+        "6": "Thousand" ,
+
+        "max":3
+    }
+}
