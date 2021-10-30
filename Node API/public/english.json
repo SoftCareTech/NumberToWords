@@ -52,5 +52,12 @@
       "n65": "Vigintillion",
       "nMax": 65
     },
-    "nNative": false 
+    "nNative": false, 
+    "unknownD":"Unknown Digit  found",
+    "unknownE":"Unknown Error",
+    "error":"Error",
+    "empty":"Error",
+    "warnL":"Language not Specified",
+    "lang":"English",
+    "ok":"Okay"
   }
