@@ -57,7 +57,7 @@
     "unknownE":"Unknown Error",
     "error":"Error",
     "empty":"Error",
-    "warnL":"Language not Specified",
+    "warnL":"Language not supported",
     "lang":"English",
     "ok":"Okay"
   }
