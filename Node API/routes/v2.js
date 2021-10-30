@@ -1,3 +1,7 @@
+'use strict';
+let numberData = require('../public/english.json');
+//let numberJ =JSON.parse(numberData);
+//console.log(numberJ) 
 class NumberReader{
     num="0";
           readUnits( d){
@@ -274,7 +278,7 @@ app.put('/words/', (req, res) => {
 
     })
     
-module.exports.v1 = app;
+module.exports.v2 = app;
      
 
 
