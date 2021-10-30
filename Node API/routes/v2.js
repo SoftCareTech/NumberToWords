@@ -227,7 +227,20 @@ class NumberReader{
    
    }  
    
-   
+   getReadMode( number){
+       var st=""
+    if(number){
+        if(number.length>3){
+            var s =3
+        for( var n=number.length;n>=0; n-=3){
+            st=" "+number.substring(0,3)+st
+            number =number.substring(4,n)
+          s+=3;
+        }
+    return st
+    }
+    }   return number
+   }
    
     getWordsFromNumber(number){
     if(number){
@@ -297,7 +310,7 @@ app.get('/words/:number/:lang', (req, res) => {
      } 
   
     var  resultData= {
-        "number":data.number,
+        "number":numberReader.getReadMode(data.number),
         "words": numberReader.getWordsFromNumber(data.number),
         "lang": numberJ.lang,
         "msg": msg
