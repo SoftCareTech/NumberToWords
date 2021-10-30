@@ -32,7 +32,9 @@ fetch("/v2/words/"+number+"/"+lang, {
         }
         function updateView(result){
           if (result){
-         document.getElementById('result').innerHTML=result.words // shown values
+         document.getElementById('result').innerHTML=result.number+ "<br/> "+result.words // shown values
+         document.getElementById('author').innerHTML="Author: "+result.author 
+         document.getElementById('languageProvider').innerHTML=result.languageProvider  
         }else
          document.getElementById('result').innerHTML="Error 2"  +result
         }       
@@ -46,16 +48,25 @@ fetch("/v2/words/"+number+"/"+lang, {
    <h1> Number to Words</h1>
 
    <h3> Type number and Check Number below </h3>
-  	<input type="number" name="num" id="num" value="" >
+  	<input type="number" name="num" id="num" value="" > <select name="lang"  id="lang" required="true"  > 
+        
+      <option value='defaul'>--select--</option>
+
+      <option value='English'  > English</option>
+      <option value='Tiv'  >Tiv</option>
+
+    </select>
      <button onclick="readNumber( )">Check Number </button> 
-    <div id="result" name="result" style="margin: 10px 10px 100px 10px ">
-      <select name="lang"  id="lang">  
-        <option value='English'  > English</option>
-        <option value='Tiv'  >Tiv</option>
- 
-      </select>
-    	 
-    </div> 
+    <div id="result" name="result" style="margin: 10px 10px 100px 10px "> 
+    </div> <div    style="  border-style: double;">
+ <ul> 
+<li id="author"  >
+</li>
+<li id="languageProvider"  > </li>
+
+ </ul>
+
+    </div>
 
     <h2>Basic test code</h2> 
     <pre   style="  border-style: double;">

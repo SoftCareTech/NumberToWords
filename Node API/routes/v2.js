@@ -313,7 +313,9 @@ app.get('/words/:number/:lang', (req, res) => {
         "number":numberReader.getReadMode(data.number),
         "words": numberReader.getWordsFromNumber(data.number),
         "lang": numberJ.lang,
-        "msg": msg
+        "msg": msg,
+        "author": numberJ.author,
+        "languageProvider":numberJ.languageProvider
         }
          console.log(resultData)
          res.json(resultData)

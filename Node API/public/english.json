@@ -1,4 +1,7 @@
 {
+  
+"author": "GBenge Aondoakula Raphael Raphael -> Email: gbengeraymond@gmail.com",
+"languageProvider":"GBenge Aondoakula Raphael Raymond",
     "n0": "ZERO",
     "n1": "ONE ",
     "n2": "TWO ",
@@ -49,15 +52,16 @@
       "n59": "Octodecillion",
       "n62": "Novemdecillion",
       "n44": "Tredecillion",
-      "n65": "Vigintillion",
+      "n65": "Vigintillion", 
       "nMax": 65
     },
     "nNative": false, 
     "unknownD":"Unknown Digit  found",
     "unknownE":"Unknown Error",
     "error":"Error",
-    "empty":"Error",
+    "empty":"Empty",
     "warnL":"Language not supported",
     "lang":"English",
-    "ok":"Okay"
+    "ok":"Okay" 
   }
+  
