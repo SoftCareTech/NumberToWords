@@ -7,12 +7,10 @@
     <title> Number Reader API</title>  
     <script type="text/javascript">  
     
-function getWordsFromNumber(n){ 
-fetch('/v1/words', {  
-  method: 'put' 
-, headers: { 'Content-Type': 'application/json', } 
-  
-,body: JSON.stringify({   'number':n  })
+function getWordsFromNumber(number, lang){ 
+fetch("/v2/words/"+number+"/"+lang, {  
+  method: 'get' 
+, headers: { 'Content-Type': 'application/json', }  
 }) .then(res => {
       if (res.ok) return res.json()
     })
@@ -24,11 +22,11 @@ fetch('/v1/words', {
     
   
 }
-      function readNumber() { 
+      function readNumber(lang) { 
              
             var input =document.getElementById('num').value  // getting the type value
          if (input)    {
-         getWordsFromNumber(input)  // validete and  get in words 
+         getWordsFromNumber(input, lang)  // validete and  get in words 
         }else
          document.getElementById('result').innerHTML="Error 1"  
         }
@@ -49,7 +47,7 @@ fetch('/v1/words', {
 
    <h3> Type number and Check Number below </h3>
   	<input type="number" name="num" id="num" value="" >
-     <button onclick="readNumber()">Check Number </button> 
+     <button onclick="readNumber('English')">Check Number </button> 
     <div id="result" name="result" style="margin: 10px 10px 100px 10px ">
     	 
     </div> 
@@ -69,8 +67,8 @@ fetch('/v1/words', {
      
      
     
-function getWordsFromNumber(n){ 
-  fetch('https://learn-numbers.herokuapp.com/v1/words', {  
+function getWordsFromNumber(number, lang){ 
+  fetch('https://learn-numbers.herokuapp.com//v2/words/"+number+"/"+"lang', {  
     method: 'put' 
   , headers: { 'Content-Type': 'application/json', } 
     
@@ -86,11 +84,11 @@ function getWordsFromNumber(n){
       
     
   }
-        function readNumber() { 
+        function readNumber(lang) { 
                
               var input =document.getElementById('num').value  // getting the type value
            if (input)    {
-           getWordsFromNumber(input)  // validete and  get in words 
+           getWordsFromNumber(input, lang)  // validete and  get in words 
           }else
            document.getElementById('result').innerHTML="Error 1"  
           }
@@ -108,7 +106,7 @@ function getWordsFromNumber(n){
 
 &ltbody&gt 
   	&ltinput type="number" name="num" id="num" value="25" &gt
-     &ltbutton onclick="readNumber()"&gtCheck Number &lt/button&gt 
+     &ltbutton onclick="readNumber('English')"&gtCheck Number &lt/button&gt 
     &ltdiv id="result" name="result" style="margin: 10px 10px 200px 10px "&gt
     	 Hello 
     &lt/div&gt 

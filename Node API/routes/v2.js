@@ -1,21 +1,20 @@
-'use strict';
-let numberData = require('../public/english.json');
-//let numberJ =JSON.parse(numberData);
-//console.log(numberJ) 
+const fs = require('fs');
+var numberJ 
 class NumberReader{
+   
     num="0";
           readUnits( d){
            switch(d){
-               case '0' :{if(this.isZeros(this.num)){  console.log("all zeros "+this.num); return "Zero";}  else return "";}
-               case '1' :return "ONE ";
-               case '2' :return "TWO ";
-               case '3' :return "THREE ";
-               case '4' :return "FOUR ";
-               case '5' :return "FIVE ";
-               case '6' :return "SIX ";
-               case '7':return "SEVEN ";
-               case '8' :return "EIGHT ";
-               case '9' :return "NINE ";
+               case '0' :{if(this.isZeros(this.num)){  console.log("all zeros "+this.num); return numberJ.n0;}  else return "";}
+               case '1' :return numberJ.n1;
+               case '2' :return numberJ.n2;
+               case '3' :return numberJ.n3;
+               case '4' :return numberJ.n4;
+               case '5' :return numberJ.n5;
+               case '6' :return numberJ.n6;
+               case '7':return numberJ.n7;
+               case '8' :return numberJ.n8;
+               case '9' :return numberJ.n9;
            }
            return "";
        }
@@ -32,113 +31,112 @@ class NumberReader{
           readTens(d){
            switch(d){
    
-               case '2' :return "TWENTY ";
-               case '3' :return "THIRTY ";
-               case '4' :return "FORTY ";
-               case'5' :return "FIFTY ";
-               case '6':return "SIXTY ";
-               case '7' :return "SEVENTY ";
-               case '8' :return "EIGHTY ";
-               case'9' :return "NINETY ";
+               case '2' :return numberJ.n20;
+               case '3' :return numberJ.n30;
+               case '4' :return numberJ.n40;
+               case'5' :return numberJ.n50;
+               case '6':return numberJ.n60;
+               case '7' :return numberJ.n70;
+               case '8' :return numberJ.n80;
+               case'9' :return numberJ.n80;
            }
            return "";
        }
    
             readTeens( num){
            switch(num){
-               case "10" :return "TEN ";
-               case "11" :return "ELEVEN ";
-               case "12" :return "TWELVEN ";
-               case "13" :return "THIRTEEN ";
-               case "14" :return "FOURTEEN ";
-               case "15" :return "FIFTEEN ";
-               case "16" :return "SIXTEEN ";
-               case "17" :return "SEVENTEEN ";
-               case "18" :return "EIGHTEEN ";
-               case "19" :return "NINETEEN ";
+               case "10" :return numberJ.n10;
+               case "11" :return numberJ.n11;
+               case "12" :return numberJ.n12;
+               case "13" :return numberJ.n13;
+               case "14" :return numberJ.n14;
+               case "15" :return numberJ.n15;
+               case "16" :return numberJ.n16;
+               case "17" :return numberJ.n17;
+               case "18" :return numberJ.n18;
+               case "19" :return numberJ.n19;
            }
            return "";
        }
    
             numberHeader(  l){
            switch(l){
-               case 2 :return "Hundred";
+               case 2 :return numberJ.nPower.n2;
    
                case 3 :
                case 4 :
-               case 5 :return "Thousand";
+               case 5 :return numberJ.nPower.n5;
    
                case 6 :
                case 7:
-               case 8:
-                   return "Million";
+               case 8: return  numberJ.nPower.n8;
                case 9 :
                case 10 :
-               case 11:return "Billion";
+               case 11:return  numberJ.nPower.n11;
                case 12:
                case 13 :
-               case 14 :return "Trillion";
+               case 14 :return  numberJ.nPower.n14;
                case 15:
                case 16 :
-               case 17 :return "Quadrillion";
+               case 17 :return  numberJ.nPower.n17;
                case 18:
                case 19 :
-               case 20 :return "Quintillion";
+               case 20 :return  numberJ.nPower.n20;
                case 21:
                case 22 :
-               case 23 :return "Sextillion";
+               case 23 :return  numberJ.nPower.n23;
                case 24:
                case 25 :
-               case 26 :return "Septillion";
+               case 26 :return  numberJ.nPower.n26;
                case 27:
                case 28 :
-               case 29 :return "Octillion";
+               case 29 :return  numberJ.nPower.n29;
                case 30:
                case 31 :
-               case 32 :return "Nonillion";
+               case 32 :return  numberJ.nPower.n32;
               case 33:
                case 34 :
-               case 35 :return "Decillion";
+               case 35 :return  numberJ.nPower.n35;
    
                case 36:
                case 37 :
-               case 38 :return "Undecillion";
+               case 38 :return  numberJ.nPower.n38;
    
                case 39:
                case 40 :
-               case 41 :return "Duodecillion";
+               case 41 :return  numberJ.nPower.n41;
    
                case 42:
-              case 43 :
-                 case 44 :return "Tredecillion";
+               case 43 :
+               case 44 :return  numberJ.nPower.n44;
    
                case 45:
                case 46 :
-               case 47 :return "Quattuordecillion";
+               case 47 :return  numberJ.nPower.n47;
    
                case 48:
                case 49 :
-               case 50 :return "Quindecillion";
+               case 50 :return  numberJ.nPower.n50;
    
                case 51:
                 case 52 :
-               case 53 :return "Sexdecillion";
+               case 53 :return  numberJ.nPower.n53;
    
                case 54:
               case 55 :
-               case 56 :return "Septendecillion";
+               case 56 :return  numberJ.nPower.n56;
    
                case 57:
                case 58 :
-               case 59 :return "Octodecillion";
+               case 59 :return  numberJ.nPower.n59;
    
                case 60:
                case 61 :
-               case 62 :return "Novemdecillion";
+               case 62 :return  numberJ.nPower.n62;
    
                case 63:
                  case 64 :
-                case 65 :return "Vigintillion";                                                                                                                                                                                                    
+                case 65 :return  numberJ.nPower.n65;                                                                                                                                                                                                    
    
        
    
@@ -196,7 +194,7 @@ class NumberReader{
          _read(n){
            var s1="", s2="";
            var l=3;
-           if(n.length<=64){ 
+           if(n.length<= numberJ.nPower.nMax){ 
    
                if (n.length<=3){ 
                    if(this.upToThosand() &&!this.isZeros(n))
@@ -217,7 +215,7 @@ class NumberReader{
            }else{
                console.log("error occur num greater accounted digit   "+n.length);
    
-               return "Eror number too long " 
+               return "Error number too long " 
            }
            return " ";
        }
@@ -237,46 +235,81 @@ class NumberReader{
             if(this.isAllDigit(number)){
            this.num=number; 
          const  result =this._read(number)
-       console.log(number+" ==   "+result)
+      // console.log(number+" ==   "+result)
        return result.toUpperCase()
    }else{
-           return "Unwanted character found"
+           return numberJ.unknownD
        }
    
    }else{
-           return "Empty"
+           return  numberJ.empty
        }
     
    } else{
-        return "Error"
+        return numberJ.error;
     }
    
    }
    isAllDigit(n){
        return !isNaN(parseFloat(n)) && isFinite(n);
    }
-   
-   
-   
-   }const numberReader= new NumberReader() 
+    
+   } 
+
+
+
 
 const express = require('express');    
-var app = express.Router();  
+var app = express.Router(); 
 app.get('/', (req, res) => {  
-       res.render('v1', { v1: null })
+       res.render('v2', { v1: null })
 })   
 
-app.put('/words/', (req, res) => {  
+app.get('/words/:number/:lang', (req, res) => {  
+    
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header('Content-Type', 'application/json')
-         res.json( {
-             "number":req.body.number,
-             "words": numberReader.getWordsFromNumber(req.body.number),
-             "lang":"eng"
-         })
+    res.header('Content-Type', 'application/json') 
+
+   const numberReader = new NumberReader()  
+    const data =req.params ;
+    console.log(data)
+    var msg="" 
+        switch(data.lang){
+            case  "English" :{
+        const rawdata = fs.readFileSync('public/english.json'); 
+         numberJ =JSON.parse(rawdata);
+         msg=numberJ.ok
+         break;
+        }
+       case  "Tiv" :{
+            const rawdata = fs.readFileSync('public/english.json'); 
+             numberJ =JSON.parse(rawdata);
+             msg=numberJ.ok
+             break;
+            }
+     default:{ 
+            const rawdata = fs.readFileSync('public/english.json'); 
+            numberJ =JSON.parse(rawdata);
+            msg=numberJ.warnL
+        }
+
+     } 
+  
+    var  resultData= {
+        "number":data.number,
+        "words": numberReader.getWordsFromNumber(data.number),
+        "lang": numberJ.lang,
+        "msg": msg
+        }
+         console.log(resultData)
+         res.json(resultData)
 
     })
+
+
+    
+    
     
 module.exports.v2 = app;
      
