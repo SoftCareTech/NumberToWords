@@ -28,15 +28,16 @@ fetch("/v2/words/"+number+"/"+lang, {
          if (input)    {
          getWordsFromNumber(input, lang)  // validete and  get in words 
         }else
-         document.getElementById('result').innerHTML="Error 1"  
+         document.getElementById('result').innerHTML="Input Error "  
         }
         function updateView(result){
           if (result){
          document.getElementById('result').innerHTML=result.number+ "<br/> "+result.words // shown values
          document.getElementById('author').innerHTML="Author: "+result.author 
-         document.getElementById('languageProvider').innerHTML=result.languageProvider  
+         document.getElementById('languageProvider').innerHTML="Language Provider: "+result.languageProvider 
+         document.getElementById('msg').innerHTML="Message: "+result.msg   
         }else
-         document.getElementById('result').innerHTML="Error 2"  +result
+         document.getElementById('result').innerHTML=" Fetch Error"  +result
         }       
       </script>
    <style>
@@ -57,14 +58,13 @@ fetch("/v2/words/"+number+"/"+lang, {
 
     </select>
      <button onclick="readNumber( )">Check Number </button> 
-    <div id="result" name="result" style="margin: 10px 10px 100px 10px "> 
-    </div> <div    style="  border-style: double;">
- <ul> 
-<li id="author"  >
+    <div id="result" name="result" style="margin: 10px 10px 10px 10px "> 
+    </div> <div style="margin: 10px 10px 100px 10px "   > 
+      <li id="msg"  > </li>
+<li id="author"   >
 </li>
 <li id="languageProvider"  > </li>
-
- </ul>
+ 
 
     </div>
 

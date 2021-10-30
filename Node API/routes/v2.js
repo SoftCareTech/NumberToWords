@@ -233,8 +233,8 @@ class NumberReader{
         if(number.length>3){
             var s =3
         for( var n=number.length;n>=0; n-=3){
-            st=" "+number.substring(0,3)+st
-            number =number.substring(4,n)
+            st=" "+number.substring(n-3,n)+st
+            number =number.substring(0,n-3)
           s+=3;
         }
     return st
