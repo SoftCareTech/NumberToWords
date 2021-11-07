@@ -143,7 +143,7 @@ class NumberReader{
            }
            return "";
        }
-          one_99(  n){
+       one_99(  n){
            if(n.length<=1){
                return this.readUnits(n.charAt(0));
            }else
@@ -151,6 +151,9 @@ class NumberReader{
                if(n.charAt(0)=='1'){
                    return	this.readTeens(n);
                }else{
+                if(numberJ.nNative)
+                return this.readTens(n.charAt(0))+this.getAnd(n.charAt(1) )+this.readUnits(n.charAt(1));
+                else 
                    return this.readTens(n.charAt(0))+this.readUnits(n.charAt(1));
                }
            }else
@@ -166,18 +169,23 @@ class NumberReader{
    }
    
      getAnd(n){
-     return  ( this.isZeros(n)? " ": " AND ")
+     return  ( this.isZeros(n)? " ": numberJ.and)
    }
      getComma(n){
      return  ( this.isZeros(n)? " ": ", ")
    }
-           readHundreds(  n, appendAnd){
+  readHundreds(  n, appendAnd){
            if(n.length<=3){ 
                if (n.length<=2){ 
                    return    appendAnd? this.getAnd( n) + this.one_99(n): this.one_99(n);
                }else{
                    if(n.charAt(0)=='0')return  appendAnd?  this.getAnd( n.substring(1,3)) + this.one_99(n.substring(1,3)):this.one_99(n.substring(1,3));
                  
+                   if(numberJ.nNative)
+                   return  this.numberHeader(n.length-1)+   this.readUnits(n.charAt(0))+
+                   this.getAnd( n.substring(1,3))
+                    + this.one_99(n.substring(1,3));
+                   else
                    return this.readUnits(n.charAt(0))+ this.numberHeader(n.length-1)+  
                     this.getAnd( n.substring(1,3))
                      + this.one_99(n.substring(1,3));
@@ -209,8 +217,12 @@ class NumberReader{
                    s2=n.substring(l, n.length);
                    if(this.isZeros(s1))
                    return  this._read(s2);
+                else{
+                if(numberJ.nNative)
+                return this.numberHeader(n.length-1)+this.readHundreds(s1, false)+  this.getComma(s2)+this._read(s2);
                 else
-                   return this.readHundreds(s1, false)+ this.numberHeader(n.length-1)+ this.getComma(s2)+this._read(s2);
+                 return this.readHundreds(s1, false)+ this.numberHeader(n.length-1)+ this.getComma(s2)+this._read(s2);
+}
                }
            }else{
                console.log("error occur num greater accounted digit   "+n.length);
@@ -286,29 +298,29 @@ app.get('/words/:number/:lang', (req, res) => {
 
    const numberReader = new NumberReader()  
     const data =req.params ;
-    console.log(data)
+   // console.log(data)
     var msg="" 
         switch(data.lang){
             case  "English" :{
-        const rawdata = fs.readFileSync('public/english.json'); 
+        const rawdata = fs.readFileSync('public/lang/english.json'); 
          numberJ =JSON.parse(rawdata);
          msg=numberJ.ok
          break;
         }
        case  "Tiv" :{
-            const rawdata = fs.readFileSync('public/english.json'); 
+            const rawdata = fs.readFileSync('public/lang/tiv.json'); 
              numberJ =JSON.parse(rawdata);
              msg=numberJ.ok
              break;
             }
      default:{ 
-            const rawdata = fs.readFileSync('public/english.json'); 
+            const rawdata = fs.readFileSync('public/lang/english.json'); 
             numberJ =JSON.parse(rawdata);
             msg=numberJ.warnL
         }
 
      } 
-  
+     console.log(numberJ.nNative)
     var  resultData= {
         "number":numberReader.getReadMode(data.number),
         "words": numberReader.getWordsFromNumber(data.number),
@@ -317,7 +329,7 @@ app.get('/words/:number/:lang', (req, res) => {
         "author": numberJ.author,
         "languageProvider":numberJ.languageProvider
         }
-         console.log(resultData)
+         //console.log(resultData)
          res.json(resultData)
 
     })

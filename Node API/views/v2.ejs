@@ -71,66 +71,34 @@ fetch("/v2/words/"+number+"/"+lang, {
     <h2>Basic test code</h2> 
     <pre   style="  border-style: double;">
        <code style="color: brown;margin: 30px 30px 30px 30px ;  "> 
-      &lt!DOCTYPE html&gt
-&lthtml lang="en"&gt
+        //pass Number and the output Language 
+        https://learn-numbers.herokuapp.com/v2/words/6788/English
 
-&lthead&gt
-    &ltmeta charset="UTF-8"&gt
-    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
-    &lttitle&gt Number Reader&lt/title&gt  
-    &ltscript src="NumberReader.js"&gt&lt/script&gt
-    &ltscript type="text/javascript"&gt  
-     
-     
-    
+        ##output JSON
+        {"number":" 6 788","words":"SIX THOUSAND, SEVEN HUNDRED AND EIGHTY EIGHT ","lang":"English","msg":"Okay","author":"GBenge Aondoakula Raphael Raphael -> Email: gbengeraymond@gmail.com","languageProvider":"Gbenge Aondoakula Raphael Raymond"}
+
+
+
+
+     /// javascript implentation        
 function getWordsFromNumber(number, lang){ 
-  fetch('https://learn-numbers.herokuapp.com//v2/words/"+number+"/"+"lang', {  
-    method: 'put' 
-  , headers: { 'Content-Type': 'application/json', } 
-    
-  ,body: JSON.stringify({   'number':n  })
+  fetch("/v2/words/"+number+"/"+lang, {  
+    method: 'get' 
+  , headers: { 'Content-Type': 'application/json', }  
   }) .then(res => {
         if (res.ok) return res.json()
       })
       .then(response => {  
       console.log(response) 
-      updateView(response)
+      updateView(response) // updateView take the result and pressent it to html
       }) 
   
       
     
   }
-        function readNumber(lang) { 
-               
-              var input =document.getElementById('num').value  // getting the type value
-           if (input)    {
-           getWordsFromNumber(input, lang)  // validete and  get in words 
-          }else
-           document.getElementById('result').innerHTML="Error 1"  
-          }
-          function updateView(result){
-            if (result){
-           document.getElementById('result').innerHTML=result.words // shown values
-          }else
-           document.getElementById('result').innerHTML="Error 2"  +result
-          }       
-      &lt/script&gt
-   &ltstyle&gt
-      
-   &lt/style&gt
-&lt/head&gt
-
-&ltbody&gt 
-  	&ltinput type="number" name="num" id="num" value="25" &gt
-     &ltbutton onclick="readNumber('English')"&gtCheck Number &lt/button&gt 
-    &ltdiv id="result" name="result" style="margin: 10px 10px 200px 10px "&gt
-    	 Hello 
-    &lt/div&gt 
-  
-
-&lt/body&gt 
-&lt/html&gt  
       </code>
+
+
     </pre>
 
     <h4> <a href="../"> Back to main </a></h4> 
