@@ -152,7 +152,7 @@ class NumberReader{
                    return	this.readTeens(n);
                }else{
                 if(numberJ.nNative)
-                return this.readTens(n.charAt(0))+this.getAnd(n.charAt(1) )+this.readUnits(n.charAt(1));
+                return this.readTens(n.charAt(0))+this.getAnd(n.charAt(0) )+   this.readUnits(n.charAt(1));
                 else 
                    return this.readTens(n.charAt(0))+this.readUnits(n.charAt(1));
                }
