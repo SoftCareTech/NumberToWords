@@ -28,6 +28,6 @@ After creating your language json file
 Make sure the case and select values are same. 
 
 ## Non Matched your language
-Add your algorithm in another public folder called it in in your case 
+Add your algorithm in public folder and called it in current version for your language(Add case ). 
 
 Thanks for contributing we hope u share it to friends.
